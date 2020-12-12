@@ -51,12 +51,14 @@ public class MediaStreamServices {
 
     public MediaStream findDataById(Long id) {
 
-        System.out.println("called findDataById from DB");
-        if (redisRepo.findById(id).isEmpty()) {
+
+        if (redisRepo.findById(id) == null) {
             MediaStream data = springRepo.findById(id).get();
             redisRepo.save(data);
+            System.out.println("called findDataById from DB");
             return data;
         }
-        return redisRepo.findById(id).get();
+        System.out.println("called findDataById from cache");
+        return redisRepo.findById(id);
     }
 }

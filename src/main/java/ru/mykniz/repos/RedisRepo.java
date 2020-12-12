@@ -29,10 +29,8 @@ public class RedisRepo {
         return redisTemplate.opsForHash().values(HASH_KEY);
     }
 
-    public Optional<MediaStream> findById(Long id) {
-        System.out.println("called findDataById from cache");
-        return Optional.of((MediaStream) redisTemplate.opsForHash().get(HASH_KEY, id));
+    public MediaStream findById(Long id) {
+        return (MediaStream) redisTemplate.opsForHash().get(HASH_KEY, id);
     }
-
 
 }
