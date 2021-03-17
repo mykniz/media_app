@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.mykniz</groupId>
-	<artifactId>music-app</artifactId>
+	<artifactId>media-app</artifactId>
 	<version>0.1</version>
-	<name>music-app</name>
+	<name>media-app</name>
 	<description>spring boot exercise</description>
 
 	<properties>

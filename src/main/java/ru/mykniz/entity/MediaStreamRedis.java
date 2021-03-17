@@ -14,7 +14,11 @@ public class MediaStreamRedis implements MediaStream {
 
     @Id
     private Long id;
-    private String username;
-    private String socialnetwork;
+    private String user_name;
+    private String first_name;
+    private String last_name;
+    private String gender;
+    private String email;
+    private String country;
 
 }
