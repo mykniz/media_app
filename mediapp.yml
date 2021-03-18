@@ -5,29 +5,31 @@ services:
   media-app:
     image: media-image
     container_name: media-container
-    depends_on:
-      - postgres
-      - redis
-      - rabbitmq
+    build:
+      dockerfile: Dockerfile
+      context: ./
+
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/user_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=admin
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - spring_rabbitmq_host=rabbitmq
-      - spring_rabbitmq_port=5672
-      - spring_rabbitmq_username=guest
-      - spring_rabbitmq_password=guest
-      - spring.data.jpa.repositories.enabled=true
-      - spring.jpa.generate-ddl=false
-      - spring.jpa.show-sql=false
-      - spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
+      - SPRING_RABBITMQ_HOST=rabbitmq-container
+
+#      - spring_rabbitmq_port=5672
+#      - spring_rabbitmq_username=guest
+#      - spring_rabbitmq_password=guest
+
+      - SPRING_REDIS_HOST=redis-container
+      - SPRING_REDIS_PORT=6379
+
     ports:
       - 8086:8086
     networks:
-      - my_network
+      - mynet
 
 networks:
-  my_network:
+  mynet:
     driver: bridge
 

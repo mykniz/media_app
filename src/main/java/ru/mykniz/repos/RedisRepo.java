@@ -24,6 +24,7 @@ public class RedisRepo {
     }
 
     public List<MediaStream> findAll() {
+
         return redisTemplate.opsForHash().values(HASH_KEY);
     }
 
