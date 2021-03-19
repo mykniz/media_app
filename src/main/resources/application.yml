@@ -36,3 +36,13 @@ spring:
     username: ${RABBITMQ_USERNAME:guest}
     password: ${RABBITMQ_PASSWORD:guest}
 
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
