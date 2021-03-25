@@ -17,6 +17,8 @@ public class MediaApp {
 
 	public static void main(String[] args) {
 
+		System.gc();
+
 		SpringApplication.run(MediaApp.class, args);
 	}
 }
