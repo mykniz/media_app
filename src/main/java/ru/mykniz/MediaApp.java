@@ -12,13 +12,10 @@ import ru.mykniz.config.RedisProperties;
 @EnableConfigurationProperties
 public class MediaApp {
 
-	@Autowired
-	private RedisProperties redisProperties;
+    @Autowired
+    private RedisProperties redisProperties;
 
-	public static void main(String[] args) {
-
-		System.gc();
-
-		SpringApplication.run(MediaApp.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MediaApp.class, args);
+    }
 }
