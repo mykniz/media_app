@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  grafana:
+    image: grafana/grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - mynet
+    restart: always
+
+networks:
+  mynet:
+    driver: bridge
+
+volumes:
+  grafana-storage:
+    driver: local

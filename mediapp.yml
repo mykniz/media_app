@@ -5,9 +5,9 @@ services:
   media-app:
     image: media-image
     container_name: media-container
-    build:
-      dockerfile: Dockerfile
-      context: ./
+#    build:
+#      dockerfile: Dockerfile
+#      context: ./
 
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/user_db

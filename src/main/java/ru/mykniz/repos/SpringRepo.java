@@ -7,5 +7,4 @@ import ru.mykniz.entity.MediaStreamDB;
 public interface SpringRepo extends JpaRepository<MediaStreamDB,Long> {
 
 
-
 }

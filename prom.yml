@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus-container
+      volumes:
+        - prometheus_data:/prometheus
+      restart: unless-stopped
+      ports:
+        - 9090:9090
+      networks:
+        - mynet
+      labels:
+        org.label-schema.group: "monitoring"
+
+networks:
+  mynet:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+    driver: local
